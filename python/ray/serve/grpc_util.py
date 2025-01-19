@@ -18,9 +18,7 @@ class RayServegRPCContext:
         self._auth_context = grpc_context.auth_context()
         self._code = grpc_context.code()
         self._details = grpc_context.details()
-        self._invocation_metadata = [  # noqa: C416
-            (key, value) for key, value in grpc_context.invocation_metadata()
-        ]
+        self._invocation_metadata = list(grpc_context.invocation_metadata())
         self._peer = grpc_context.peer()
         self._peer_identities = grpc_context.peer_identities()
         self._peer_identity_key = grpc_context.peer_identity_key()
